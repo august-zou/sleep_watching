@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "august-zou",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "rabbit.js": "^0.4.2"
+  }
 }
