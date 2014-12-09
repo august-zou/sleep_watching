@@ -1,0 +1,11 @@
+{
+  "name": "sleep_watching",
+  "version": "0.0.1",
+  "description": "this is an web app for sleep watching",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "august-zou",
+  "license": "ISC"
+}
