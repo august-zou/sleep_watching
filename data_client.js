@@ -17,16 +17,23 @@ function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
 }
 
+var fs = require('fs');
+var bufferStr = fs.readFileSync('data.dat');
+var data_index = 0;
+
+
 function sendData(){
- var sendStr="";
- for(var i=0;i<60;++i){
-   sendStr += randomInt(0,255);
-   if (i!=59) sendStr += ",";
- }
- client.write(sendStr);
+  if (data_index < bufferStr.length){
+    for(var i=0;i<60;++i){
+      console.log(bufferStr.readUInt8(data_index+i));
+    }
+    client.write(sendStr);
+  } else {
+   client.write(0)
+  }
 }
 //send data per second
-setInterval(sendData,INTERVAL_TIME);
+//setInterval(sendData,INTERVAL_TIME);
 
 // 为客户端添加“data”事件处理函数
 // data是服务器发回的数据
