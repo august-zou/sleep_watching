@@ -17,8 +17,9 @@ net.createServer(function(sock) {
 
     // 为这个socket实例添加一个"data"事件处理函数
     sock.on('data', function(data) {
-        console.log('DATA ' + sock.remoteAddress + ': ' + data);
-        pub.write(data, 'utf8');
+       console.log('DATA ' + sock.remoteAddress + ': ');
+       console.log(data);
+       pub.write(data);
     });
 
     // 为这个socket实例添加一个"close"事件处理函数
