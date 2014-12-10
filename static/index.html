@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="sleepWatchingApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles/sleep_watching.css">
+    <script type="text/javascript" src="/components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/components/angular/angular.js"></script>
+    <script type="text/javascript" src="/components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="/components/highcharts-release/highcharts.src.js"></script>
+    <script type="text/javascript" src="/components/highcharts-ng/dist/highcharts-ng.js"></script>
+  </head>
+  <body ng-controller="PressureCtrl">
+    <h1 >Index</h1>
+    <div id="row">
+      <div class="col-md-8">
+          <highchart id="chart1" config="chartConfig" class="span9" ></highchart>
+      </div>
+      <div class="col-md-4">.col-md-4</div>  
+    </div>
+    <script type="text/javascript" src="/sleep-watching.js"></script>
+    <script type="text/javascript" src="/services/socket.js"></script>
+    <script type="text/javascript" src="/router.js"></script>
+    <script type="text/javascript" src="/controllers/pressure.js"></script>
+ 
+  </body>
+</html>
