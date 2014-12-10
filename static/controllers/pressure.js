@@ -1,9 +1,13 @@
-'use strict';
 angular.module('sleepWatchingApp').controller('PressureCtrl',function($scope,socket) {
-  $scope.data = [1, 2, 4, 7, 3];
+  var TOTAL_DATA_LENGTH = 240;
+  $scope.data = new Array(TOTAL_DATA_LENGTH);
+  for(var i=0;i<$scope.data.length;++i)$scope.data[i] = 0;
   socket.on('pressure.read',function(data) {
-   $scope.data = data;
-   $scope.chartConfig.series[0].data = data;
+   $scope.data = data.concat($scope.chartConfig.series[0].data.slice(0,179));
+
+   $scope.chartConfig.series[0].data = $scope.data;
+   //var series =  $scope.chartConfig.series[0];
+   //series.addPoint(data,true,true,true);
   });
   $scope.chartSeries = [
     {"name": "Some data", "data": $scope.data},
@@ -22,9 +26,11 @@ angular.module('sleepWatchingApp').controller('PressureCtrl',function($scope,soc
       },
       plotOptions: {
         series: {
-          stacking: ''
+          //stacking: ''
+          animation:false
         }
-      }
+      },
+      animation:false
     },
     series: $scope.chartSeries,
     yAxis:{
@@ -39,7 +45,7 @@ angular.module('sleepWatchingApp').controller('PressureCtrl',function($scope,soc
     },
     loading: false,
     size: {}
-  }
+  };
 
   $scope.reflow = function () {
     $scope.$broadcast('highchartsng.reflow');
