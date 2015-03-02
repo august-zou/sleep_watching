@@ -1,5 +1,5 @@
 angular.module('sleepWatchingApp').controller('PressureCtrl',function($scope,socket) {
-  var TOTAL_DATA_LENGTH = 6000;
+  var TOTAL_DATA_LENGTH = 1000;
   $scope.data = new Array(TOTAL_DATA_LENGTH);
   for(var i=0;i<$scope.data.length;++i)$scope.data[i] = 0;
   socket.on('pressure.read',function(data) {
